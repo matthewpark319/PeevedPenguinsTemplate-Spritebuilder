@@ -25,6 +25,9 @@
     
     // nothing shall collide with our invisible nodes
     _pullbackNode.physicsBody.collisionMask = @[];
+    
+    // visualize physics bodies & joints
+    _physicsNode.debugDraw = TRUE;
 }
 
 // called on every touch in this scene
