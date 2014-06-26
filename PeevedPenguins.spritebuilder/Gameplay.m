@@ -18,10 +18,6 @@
     CCPhysicsJoint *_mouseJoint;
 }
 
-+(id)alloc{
-    
-}
-
 
 // is called when CCB file has completed loading
 - (void)didLoadFromCCB {
