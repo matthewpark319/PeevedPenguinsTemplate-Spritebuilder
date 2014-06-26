@@ -11,7 +11,6 @@
 @implementation MainScene
 
 - (void)play {
-    Class class = NSClassFromString(@"Gameplay");
     CCScene *gameplayScene = [CCBReader loadAsScene:@"Gameplay"];
     [[CCDirector sharedDirector] replaceScene:gameplayScene];
 }
