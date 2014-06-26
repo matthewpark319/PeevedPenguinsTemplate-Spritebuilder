@@ -15,6 +15,8 @@
     CCNode *_contentNode; 
     CCNode *_pullbackNode;
     CCNode *_mouseJointNode;
+    CCNode *_currentPenguin;
+    CCPhysicsJoint *_penguinCatapultJoint;
     CCPhysicsJoint *_mouseJoint;
 }
 
@@ -29,10 +31,11 @@
     
     // nothing shall collide with our invisible nodes
     _pullbackNode.physicsBody.collisionMask = @[];
-        
+    
     _pullbackNode.physicsBody.collisionMask = @[];
     
     _mouseJointNode.physicsBody.collisionMask = @[];
+    
 }
 
 // called on every touch in this scene
@@ -43,6 +46,19 @@
     // start catapult dragging when a touch inside of the catapult arm occurs
     if (CGRectContainsPoint([_catapultArm boundingBox], touchLocation))
     {
+        // create a penguin from the ccb-file
+        _currentPenguin = [CCBReader load:@"Penguin"];
+        //initially position it on the scoop. (34, 138) is the position in the node space of the _catapultArm
+        CGPoint penguinPosition = [_catapultArm convertToWorldSpace:ccp(34, 138)];
+        // transform the world position to the node space to which the penguin will be added (_physicsNode)
+        _currentPenguin.position = [_physicsNode convertToNodeSpace:penguinPosition];
+        // add it to the physics world
+        [_physicsNode addChild:_currentPenguin];
+        // we don;t want the penguin to rotate in the scoop
+        _currentPenguin.physicsBody.allowsRotation = FALSE;
+        
+        // create a joint to keep the penguin fixed to the scoop until the catapult is released
+        _penguinCatapultJoint = [CCPhysicsJoint connectedPivotJointWithBodyA:_currentPenguin.physicsBody bodyB:_catapultArm.physicsBody anchorA:_currentPenguin.anchorPointInPoints];
         // move the mouseJointNode to the touch position
         _mouseJointNode.position = touchLocation;
         
