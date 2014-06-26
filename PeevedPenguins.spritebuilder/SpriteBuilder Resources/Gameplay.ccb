@@ -164,8 +164,8 @@
 					<string>Position</string>
 					<key>value</key>
 					<array>
-						<real>247.39999389648438</real>
-						<real>339.79998779296875</real>
+						<real>249.79998779296875</real>
+						<real>313.39999389648438</real>
 						<integer>0</integer>
 						<integer>0</integer>
 						<integer>0</integer>
@@ -264,7 +264,7 @@
 					<key>type</key>
 					<string>Float</string>
 					<key>value</key>
-					<real>300</real>
+					<real>1000</real>
 				</dict>
 			</array>
 			<key>selected</key>
@@ -1590,8 +1590,8 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>247.39999389648438</real>
-									<real>325.79998779296875</real>
+									<real>249.79998779296875</real>
+									<real>299.39999389648438</real>
 									<integer>0</integer>
 									<integer>0</integer>
 									<integer>0</integer>
