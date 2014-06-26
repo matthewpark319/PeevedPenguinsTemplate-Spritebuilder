@@ -1884,7 +1884,7 @@
 			</dict>
 		</array>
 		<key>customClass</key>
-		<string>Gameplayikookoiok</string>
+		<string>Gameplay</string>
 		<key>displayName</key>
 		<string>CCNode</string>
 		<key>memberVarAssignmentName</key>
