@@ -71,6 +71,7 @@
 {
     // when touches end, meaning the user releases their finger, release the catapult
     [self releaseCatapult];
+    [self launchPenguin];
 }
 
 -(void) touchCancelled:(UITouch *)touch withEvent:(UIEvent *)event
