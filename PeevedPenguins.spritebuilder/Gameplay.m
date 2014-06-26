@@ -31,7 +31,7 @@
     // visualize physics bodies & joints
     _physicsNode.debugDraw = TRUE;
     
-    _mouseJointNode.physicsBody.collisionMask = @[];
+    _pullbackNode.physicsBody.collisionMask = @[];
 }
 
 // called on every touch in this scene
