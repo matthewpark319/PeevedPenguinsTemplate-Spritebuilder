@@ -18,8 +18,14 @@
     CCPhysicsJoint *_mouseJoint;
 }
 
++(id)alloc{
+    
+}
+
+
 // is called when CCB file has completed loading
 - (void)didLoadFromCCB {
+    
     // tell this scene to accept touches
     self.userInteractionEnabled = TRUE;
     
