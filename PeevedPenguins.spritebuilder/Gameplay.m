@@ -56,7 +56,7 @@
         _currentPenguin.position = [_physicsNode convertToNodeSpace:penguinPosition];
         // add it to the physics world
         [_physicsNode addChild:_currentPenguin];
-        // we don;t want the penguin to rotate in the scoop
+        // we don't want the penguin to rotate in the scoop
         _currentPenguin.physicsBody.allowsRotation = FALSE;
         
         // create a joint to keep the penguin fixed to the scoop until the catapult is released
@@ -140,6 +140,16 @@
 }
 
 - (void)sealRemoved:(CCNode *)seal {
+    // load particle effect
+    CCParticleSystem *explosion = (CCParticleSystem *)[CCBReader load:@"SealExplosion"];
+    // make the particle effect clean itself up, once it is completed
+    explosion.autoRemoveOnFinish = TRUE;
+    // place the particle effect on the seals position
+    explosion.position = seal.position;
+    // add the particle effect to the same node the seal is on
+    [seal.parent addChild:explosion];
+    
+    // finally, remove the destroyed seal
     [seal removeFromParent];
 }
 
