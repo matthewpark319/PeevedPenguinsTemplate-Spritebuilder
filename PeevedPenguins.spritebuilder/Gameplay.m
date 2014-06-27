@@ -58,8 +58,6 @@ static const float MIN_SPEED = 5.f;
     _followCatapult = [CCActionFollow actionWithTarget:_catapultArm worldBoundary:self.boundingBox];
 
     [_contentNode runAction:_followCatapult];
-    
-    [_contentNode stopAction:_followCatapult];
 }
 
 // is called when CCB file has completed loading
