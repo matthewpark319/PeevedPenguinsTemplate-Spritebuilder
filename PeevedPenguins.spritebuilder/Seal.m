@@ -14,5 +14,4 @@
     self.physicsBody.collisionType = @"seal";
 }
 
-
 @end
