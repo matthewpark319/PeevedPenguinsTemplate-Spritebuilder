@@ -39,7 +39,8 @@ static const float MIN_SPEED = 5.f;
         
         // checks if the penguin is outside the right edge of the screen
         if (xMin < self.boundingBox.origin.x) {
-            [self nextAttempt];
+//            [self nextAttempt];
+            [self performSelectorOnMainThread:@selector(nextAttempt) withObject:nil waitUntilDone:NO];
             return;
         }
         
@@ -47,7 +48,8 @@ static const float MIN_SPEED = 5.f;
         
         // checks if the penguin is outside the left edge of the screen
         if (xMax > (self.boundingBox.origin.x + self.boundingBox.size.width)) {
-            [self nextAttempt];
+//            [self nextAttempt];
+            [self performSelectorOnMainThread:@selector(nextAttempt) withObject:nil waitUntilDone:NO];
             return;
         }
     }
