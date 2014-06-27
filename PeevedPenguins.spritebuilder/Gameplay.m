@@ -20,6 +20,7 @@
     CCPhysicsJoint *_penguinCatapultJoint;
     CCPhysicsJoint *_mouseJoint;
     CCAction *_followPenguin;
+    CCAction *_followCatapult;
 }
 
 static const float MIN_SPEED = 5.f;
@@ -54,11 +55,11 @@ static const float MIN_SPEED = 5.f;
     // stopc following the penguin
     [_contentNode stopAction:_followPenguin];
     
-    // move to (0, 0)
-    CCActionMoveTo *actionMoveTo = [CCActionMoveTo actionWithDuration:1.f position:ccp(0, 0)];
-    [_contentNode runAction:actionMoveTo];
+    _followCatapult = [CCActionFollow actionWithTarget:_catapultArm worldBoundary:self.boundingBox];
+
+    [_contentNode runAction:_followCatapult];
     
-    [_contentNode stopAction:actionMoveTo];
+    [_contentNode stopAction:_followCatapult]
 }
 
 // is called when CCB file has completed loading
